@@ -1,6 +1,10 @@
 import './style.css';
+import { useState } from 'react';
 
 export const HomePage = () => {
+  const [countLike, setCountLike] = useState(0);
+  const [countDislike, setCountDislike] = useState(0);
+
   return (
     <div className="container">
       <div className="joke">
@@ -20,13 +24,21 @@ export const HomePage = () => {
           </p>
         </div>
         <div className="joke__likes">
-          <button id="btn-up" className="btn-like btn-like--up"></button>
+          <button
+            onClick={() => setCountLike(countLike + 1)}
+            id="btn-up"
+            className="btn-like btn-like--up"
+          ></button>
           <span id="likes-up" className="likes-count likes-count--up">
-            0
+            {countLike}
           </span>
-          <button id="btn-down" className="btn-like btn-like--down"></button>
+          <button
+            onClick={() => setCountDislike(countDislike + 1)}
+            id="btn-down"
+            className="btn-like btn-like--down"
+          ></button>
           <span id="likes-down" className="likes-count likes-count--down">
-            0
+            {countDislike}
           </span>
         </div>
       </div>
